@@ -3,7 +3,7 @@
 ## Members:
 
 - ZhaoHaoran(320180940621)
-- LinGuoxi
+- LinGuoxi(320180939981)
 - ZhaiZhaoyuan(320180939661)
 - CaoShuhai(320180939551)
 - MiaoYan(320180940711)
