@@ -1,0 +1,130 @@
+Homework in data4
+Hypothesis: There is a positive relationship between version and number of fixes.
+Data used: the number of git logs with a Fix tag, the version number.
+Verification:
+	Verify code:
+		import statsmodels.api as sm
+		import pandas as pd
+		import statsmodels.api as sm
+		import matplotlib.pyplot as plt
+		
+		data=pd.read_excel('/Users/hurryzhao/Downloads/version-fixes.xlsx')
+		y=data['fix'][4:11]
+		x=data['version'][4:11]
+		
+		
+		x_n = sm.add_constant(x)
+		model = sm.OLS(y, x_n)
+		results = model.fit()
+		 
+		logfile = open(r'/Users/hurryzhao/summary.txt', 'a')
+		print(results.summary(),file=logfile)
+		print('Parameters: ', results.params)
+		print('R2: ', results.rsquared)
+		logfile.close()
+		
+		plt.figure()
+		plt.rcParams['font.sans-serif'] = ['Kaiti']  
+		plt.title(u"fixs-version")
+		plt.xlabel(u"version")
+		plt.ylabel(u"fix_num")
+		plt.axis([4, 6, 20000, 40000])
+		plt.scatter(x, y, marker="o",color="b", s=50)
+		plt.plot(x_n, y, linewidth=3, color="r")
+		plt.show()
+	
+	Result
+		3.13--3.19: 
+			                   OLS Regression Results                            
+		==============================================================================
+		Dep. Variable:                    fix   R-squared:                       0.992
+		Model:                            OLS   Adj. R-squared:                  0.990
+		Method:                 Least Squares   F-statistic:                     619.4
+		Date:                Tue, 09 Jun 2020   Prob (F-statistic):           1.95e-06
+		Time:                        23:37:17   Log-Likelihood:                -34.917
+		No. Observations:                   7   AIC:                             73.83
+		Df Residuals:                       5   BIC:                             73.73
+		Df Model:                           1                                         
+		Covariance Type:            nonrobust                                         
+		==============================================================================
+		                 coef    std err          t      P>|t|      [0.025      0.975]
+		------------------------------------------------------------------------------
+		const      -6.166e+04   2499.698    -24.666      0.000   -6.81e+04   -5.52e+04
+		version     1.975e+04    793.539     24.889      0.000    1.77e+04    2.18e+04
+		==============================================================================
+		Omnibus:                          nan   Durbin-Watson:                   1.485
+		Prob(Omnibus):                    nan   Jarque-Bera (JB):                1.006
+		Skew:                           0.790   Prob(JB):                        0.605
+		Kurtosis:                       2.023   Cond. No.                         546.
+		==============================================================================
+		4.11--4.19:
+		                            OLS Regression Results                            
+		==============================================================================
+		Dep. Variable:                    fix   R-squared:                       0.999
+		Model:                            OLS   Adj. R-squared:                  0.999
+		Method:                 Least Squares   F-statistic:                     4747.
+		Date:                Tue, 09 Jun 2020   Prob (F-statistic):           6.29e-10
+		Time:                        23:45:56   Log-Likelihood:                -50.450
+		No. Observations:                   8   AIC:                             104.9
+		Df Residuals:                       6   BIC:                             105.1
+		Df Model:                           1                                         
+		Covariance Type:            nonrobust                                         
+		==============================================================================
+		                 coef    std err          t      P>|t|      [0.025      0.975]
+		------------------------------------------------------------------------------
+		const       -6.58e+05   9793.328    -67.188      0.000   -6.82e+05   -6.34e+05
+		version     1.628e+05   2362.648     68.902      0.000    1.57e+05    1.69e+05
+		==============================================================================
+		Omnibus:                        0.272   Durbin-Watson:                   0.897
+		Prob(Omnibus):                  0.873   Jarque-Bera (JB):                0.398
+		Skew:                          -0.198   Prob(JB):                        0.820
+		Kurtosis:                       1.982   Cond. No.                         794.
+		==============================================================================
+		4.2--4.9:
+		                            OLS Regression Results                            
+		==============================================================================
+		Dep. Variable:                    fix   R-squared:                       0.985
+		Model:                            OLS   Adj. R-squared:                  0.981
+		Method:                 Least Squares   F-statistic:                     319.1
+		Date:                Tue, 09 Jun 2020   Prob (F-statistic):           1.01e-05
+		Time:                        23:48:46   Log-Likelihood:                -46.445
+		No. Observations:                   7   AIC:                             96.89
+		Df Residuals:                       5   BIC:                             96.78
+		Df Model:                           1                                         
+		Covariance Type:            nonrobust                                         
+		==============================================================================
+		                 coef    std err          t      P>|t|      [0.025      0.975]
+		------------------------------------------------------------------------------
+		const      -2.828e+04   1855.311    -15.242      0.000    -3.3e+04   -2.35e+04
+		version     7357.8571    411.885     17.864      0.000    6299.074    8416.641
+		==============================================================================
+		Omnibus:                          nan   Durbin-Watson:                   0.859
+		Prob(Omnibus):                    nan   Jarque-Bera (JB):                0.608
+		Skew:                           0.325   Prob(JB):                        0.738
+		Kurtosis:                       1.711   Cond. No.                         106.
+		==============================================================================
+		5.0--5.5:
+		                            OLS Regression Results                            
+		==============================================================================
+		Dep. Variable:                    fix   R-squared:                       0.998
+		Model:                            OLS   Adj. R-squared:                  0.998
+		Method:                 Least Squares   F-statistic:                     1678.
+		Date:                Tue, 09 Jun 2020   Prob (F-statistic):           3.20e-05
+		Time:                        23:49:36   Log-Likelihood:                -31.256
+		No. Observations:                   5   AIC:                             66.51
+		Df Residuals:                       3   BIC:                             65.73
+		Df Model:                           1                                         
+		Covariance Type:            nonrobust                                         
+		==============================================================================
+		                 coef    std err          t      P>|t|      [0.025      0.975]
+		------------------------------------------------------------------------------
+		const       -7.72e+04   2664.976    -28.968      0.000   -8.57e+04   -6.87e+04
+		version     2.098e+04    512.306     40.960      0.000    1.94e+04    2.26e+04
+		==============================================================================
+		Omnibus:                          nan   Durbin-Watson:                   1.607
+		Prob(Omnibus):                    nan   Jarque-Bera (JB):                0.463
+		Skew:                          -0.347   Prob(JB):                        0.793
+		Kurtosis:                       1.681   Cond. No.                         198.
+		==============================================================================		
+Conclusion:
+	There is a really strong positive relationship between version and number of fixes. In general, with the development of linux kernel, the number of fits is becoming more and more, and the growth is really like a line, while  the OLS Regression R-squared is about 1.00.

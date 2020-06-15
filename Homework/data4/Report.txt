@@ -1,0 +1,58 @@
+Data 4 time to fix
+
+Group = Group 03, CS 212, Lanzhou University
+maintainer = ZhaoHaoran
+__email__ = zhaohr18@lzu.edu.cn
+
+Introduction:
+	In this homework, we use the get_fix_time.py to get the fix time data of 6 kernels（v4.1, v4.4.1, v4.9.175, 
+	v4.14.38, v4.19.3, v5.4.1,v5.5). And we compared their hist graph, find that the distributation of fix time 
+	looks very similar(the figures are in the same folder).
+Analysis:
+	- KL and JS
+		Kullback-leibler divergence or information divergence is the asymmetric measure of the difference between
+		the two probability distributions. JS divergence, also known as JS distance, is a variant of KL divergence.
+		
+		By calculating KL and JS, we found that both these divergences are infinite smell. Which means that these 
+		time to fix data have a very similar distribution.
+	
+	- Jaccard Index
+		The Jaccard Index, also known as the Jaccard Similarity coefficient, is used to compare the similarity and 
+		difference between limited sample sets. The larger the Jaccard coefficient value is, the higher the sample
+		similarity is. It have a range from 0 to 1.
+		
+		The average Jaccard index among the randomly selected data is about 0.989, which means the sample is 
+		very similar.
+		
+	- Euclidean distance and manhattan distance
+		In mathematics, the Euclidean distance or Euclidean metric is the "normal" (that is, straight line) distance
+		between two points in Euclidean space. Using this distance, the Euclidean space becomes the metric 
+		space.
+		
+		In this project, we can calculat that the Euclidean distance and manhattan distance are really high, which is 
+		in violation of the conclusion of KL and JS and Jaccard Index. It is because although the distributation is 
+		similar, the number of data is different and the distance between two corresponding points is very large.
+		
+	- Pearson Correlation-coefficient
+		The Pearson Correlation-coefficient is used to measure whether two data sets are on a line. It is used to 
+		measure the linear relationship between distance variables.
+		In general, the correlation strength of variables can be judged by the following value range:
+		Correlation coefficient 0.8-1.0 is highly correlated
+		0.6 0.8 strong correlation
+		0.4-0.6 were moderately correlated
+		0.2 0.4 weak correlation
+		0.0-0.2 very weak correlation or no correlation
+		
+		The average Pearson Correlation-coefficient is around 0.94, which means there is a strong relationship
+		between these data.
+		
+	- Cosine Similarity 
+		Cosine Similarity evaluates two vectors by calculating the Angle between them. Draw the vector into the 
+		vector space according to the coordinate value, get their included Angle, and get the cosine value corresponding
+		to the included Angle, which can be used to represent the similarity of the two vectors. The smaller the Angle,
+		the closer the cosine is to 1, and the closer their directions are, the more similar they are.
+		
+		The average Cosine Similarity is around 0.98, which means there is a strong relationship between these data.
+	
+Conclusion:
+	The similarity of the ”time-to-fix” for each of the LTS kernels is very high, and they all in a similar distribution.
