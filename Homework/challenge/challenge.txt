@@ -1,0 +1,8 @@
+challenge1:
+    pd.concat([df, df['hour'] - df['hour'].shift(1).fillna(0)], axis=1)
+challenge2:
+	challenge.py file is the code.
+	We choose the histogram with 10 bins based on 3 indicators:
+	Number of groups with frequency 0: If there are too many empty groups, it is a waste of bins, which means we do not need that many bins.
+	The standard deviation of the frequency difference between adjacent groups: The more the standard deviation is, the more likely this histogram is impacted by the boundary value, which lies on the dividing line between bins.
+	The standard deviation of the difference between the frequency and the average frequency: The more the standard deviation is, the more likely that there are some bins have not been divided enough. Those bins with high frequency need to be divided further. 
