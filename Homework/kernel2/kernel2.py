@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding:UTF-8 -*-
 """
+Our gruop submit this individual assignment as group assignment
+
 Firstly, we manually found all the versions in the level of 3.x,4.x,5.x, then we use git tag
 to grab all the sorted subversions for every 3.x,4.x,5.x. After looking at the commit time,
 our group use weeks as time units. In this file, in the function create_dataframe(), the
