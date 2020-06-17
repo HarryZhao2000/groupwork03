@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Fri Jun 11 14:28:15 2020
+
 Simple program on automatically finding bugs and it's length of exists of a range in a certain version.
 Educational purpose only, do not use for other purpose please!
+
+@author: harryzhao
 """
 
 __author__ = "Group 03, CS 212, Lanzhou University"

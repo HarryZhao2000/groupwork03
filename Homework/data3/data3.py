@@ -5,6 +5,13 @@ Created on Tue Jun  9 22:07:47 2020
 
 @author: hurryzhao
 """
+__author__ = "Group 03, CS 212, Lanzhou University"
+__copyright__ = "Copyright (c) 2020, Study Project in Lanzhou University , China"
+__license__ = "GPL V3"
+__version__ = "0.1"
+__maintainer__ = "ZhaoHaoran"
+__email__ = "zhaohr18@lzu.edu.cn"
+__status__ = "Experimental"
 
 import statsmodels.api as sm
 import pandas as pd

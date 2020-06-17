@@ -1,3 +1,17 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun  8 22:07:47 2020
+
+@author: ShuhaiCao
+"""
+__author__ = "Group 03, CS 212, Lanzhou University"
+__copyright__ = "Copyright (c) 2020, Study Project in Lanzhou University , China"
+__license__ = "GPL V3"
+__version__ = "0.1"
+__maintainer__ = "ShuhaiCao"
+__email__ = "zhaohr18@lzu.edu.cn"
+__status__ = "Experimental"
 from subprocess import Popen, PIPE, DEVNULL
 import re
 import matplotlib.pyplot as plt
