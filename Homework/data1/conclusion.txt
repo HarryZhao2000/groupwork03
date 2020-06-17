@@ -1,0 +1,113 @@
+CS212 --Conclusion for hypothese1 in data1
+Group03
+
+If using this given refactor list in class as training set
+
+- hofrat: 121 122
+- hofrat: 135 136
+- hofrat: 151 152 (but here removed > added)
+- hofrat: 170 171
+- hofrat: 184 185 (again removed > added)
+- hofrat: 198 199
+
+
+Firstly, we only test the first indicator--multiple files changed and the second indicator - many changes added == removed using different numbers. We found the best is 0.5. (although the probability of success using 0.52 (P=5/12=0.4167) is better than 0.5 (P=6/19=0.3158) , but we don’t want to miss any refactoring, unless there is a very big difference in probability)
+
+
+1/3
+
+['HEAD~105...HEAD~106', 'HEAD~117...HEAD~118', 'HEAD~119...HEAD~120', 'HEAD~121...HEAD~122', 'HEAD~123...HEAD~124', 'HEAD~126...HEAD~127', 'HEAD~135...HEAD~136', 'HEAD~136...HEAD~137', 'HEAD~139...HEAD~140', 'HEAD~141...HEAD~142', 'HEAD~149...HEAD~150', 'HEAD~151...HEAD~152', 'HEAD~154...HEAD~155', 'HEAD~155...HEAD~156', 'HEAD~159...HEAD~160', 'HEAD~165...HEAD~166', 'HEAD~166...HEAD~167', 'HEAD~169...HEAD~170', 'HEAD~170...HEAD~171', 'HEAD~171...HEAD~172', 'HEAD~173...HEAD~174', 'HEAD~175...HEAD~176', 'HEAD~181...HEAD~182', 'HEAD~183...HEAD~184', 'HEAD~184...HEAD~185', 'HEAD~188...HEAD~189', 'HEAD~194...HEAD~195', 'HEAD~198...HEAD~199', 'HEAD~199...HEAD~200']
+
+P(refactor)=6/29=0.2069
+
+
+0.5
+
+['HEAD~105...HEAD~106', 'HEAD~121...HEAD~122', 'HEAD~123...HEAD~124', 'HEAD~135...HEAD~136', 'HEAD~141...HEAD~142', 'HEAD~149...HEAD~150', 'HEAD~151...HEAD~152', 'HEAD~154...HEAD~155', 'HEAD~155...HEAD~156', 'HEAD~169...HEAD~170', 'HEAD~170...HEAD~171', 'HEAD~173...HEAD~174', 'HEAD~175...HEAD~176', 'HEAD~181...HEAD~182', 'HEAD~183...HEAD~184', 'HEAD~184...HEAD~185', 'HEAD~188...HEAD~189', 'HEAD~198...HEAD~199', 'HEAD~199...HEAD~200']
+
+P(refactor)=6/19=0.3158
+
+
+0.52
+
+['HEAD~121...HEAD~122', 'HEAD~135...HEAD~136', 'HEAD~141...HEAD~142', 'HEAD~149...HEAD~150', 'HEAD~151...HEAD~152', 'HEAD~154...HEAD~155', 'HEAD~155...HEAD~156', 'HEAD~169...HEAD~170', 'HEAD~175...HEAD~176', 'HEAD~184...HEAD~185', 'HEAD~198...HEAD~199', 'HEAD~199...HEAD~200']
+
+P(refactor)=5/12=0.4167
+
+
+0.55
+
+['HEAD~121...HEAD~122', 'HEAD~141...HEAD~142', 'HEAD~149...HEAD~150', 'HEAD~151...HEAD~152', 'HEAD~155...HEAD~156', 'HEAD~169...HEAD~170', 'HEAD~175...HEAD~176', 'HEAD~184...HEAD~185', 'HEAD~198...HEAD~199', 'HEAD~199...HEAD~200']
+
+P(refactor)=4/13=0.3077
+
+
+0.6
+
+['HEAD~121...HEAD~122', 'HEAD~141...HEAD~142', 'HEAD~149...HEAD~150', 'HEAD~155...HEAD~156', 'HEAD~169...HEAD~170', 'HEAD~175...HEAD~176', 'HEAD~198...HEAD~199', 'HEAD~199...HEAD~200']
+
+P(refactor)=2/8=0.25
+
+
+Secondly, based on the first two indicators, we add the third indicator-- some added > removed and using logical operator “and” to join them, and we found the following results with condition -- added>removed
+
+
+['HEAD~121...HEAD~122', 'HEAD~123...HEAD~124', 'HEAD~170...HEAD~171', 'HEAD~173...HEAD~174', 'HEAD~175...HEAD~176']
+
+P(refactor)=2/5=0.4
+
+
+Then, we found the results with condition -- removed>added
+
+
+['HEAD~105...HEAD~106', 'HEAD~135...HEAD~136', 'HEAD~141...HEAD~142', 'HEAD~149...HEAD~150', 'HEAD~151...HEAD~152', 'HEAD~181...HEAD~182', 'HEAD~183...HEAD~184', 'HEAD~184...HEAD~185', 'HEAD~188...HEAD~189', 'HEAD~198...HEAD~199', 'HEAD~199...HEAD~200']
+
+P(refactor)=4/11=0.364, but 'HEAD~151...HEAD~152','HEAD~184...HEAD~185' are cleanup, and 'HEAD~135...HEAD~136' is maybe, so actually the probability is P(refactor)=1/11= 0.091
+
+Therefore, from this given data, the pattern seems correct. (- many file changed, - many changes added == removed, - some added > removed)
+
+
+This data is found by our group members from HEAD~200 TO HEAD~300. And we cannot make sure that we found all the refactor(may missing some refactor that actually should be labeled as “yes”).But atleast this is our data, and we will use this to verify the pattern
+
+200 201    yes
+206 207    yes
+210 211    maybe
+223 224    yes
+226 227    maybe
+233 234    yes
+239 240    yes
+243 244    maybe
+244 245    yes
+253 254    maybe
+272 273    maybe
+274 275    yes
+284 285    maybe
+288 289    yes
+290 291    yes
+
+In the second indicator--many changes added == removed, 0.2(means in all file changes, 20percent changes are added==removed) found 5 of 9 “yes” refactor, 0.3 found 4, but 0.5 only found 1. So we don’t think this hypothesis is correct(atleast not in this dataset).
+
+0.2
+['HEAD~200...HEAD~201', 'HEAD~202...HEAD~203', 'HEAD~204...HEAD~205', 'HEAD~205...HEAD~206', 'HEAD~207...HEAD~208', 'HEAD~208...HEAD~209', 'HEAD~215...HEAD~216', 'HEAD~216...HEAD~217', 'HEAD~217...HEAD~218', 'HEAD~220...HEAD~221', 'HEAD~221...HEAD~222', 'HEAD~223...HEAD~224', 'HEAD~226...HEAD~227', 'HEAD~229...HEAD~230', 'HEAD~233...HEAD~234', 'HEAD~235...HEAD~236', 'HEAD~236...HEAD~237', 'HEAD~242...HEAD~243', 'HEAD~246...HEAD~247', 'HEAD~248...HEAD~249', 'HEAD~251...HEAD~252', 'HEAD~255...HEAD~256', 'HEAD~261...HEAD~262', 'HEAD~267...HEAD~268', 'HEAD~268...HEAD~269', 'HEAD~269...HEAD~270', 'HEAD~271...HEAD~272', 'HEAD~272...HEAD~273', 'HEAD~274...HEAD~275', 'HEAD~275...HEAD~276', 'HEAD~276...HEAD~277', 'HEAD~279...HEAD~280', 'HEAD~282...HEAD~283', 'HEAD~283...HEAD~284', 'HEAD~286...HEAD~287', 'HEAD~288...HEAD~289', 'HEAD~289...HEAD~290', 'HEAD~291...HEAD~292', 'HEAD~292...HEAD~293', 'HEAD~293...HEAD~294', 'HEAD~295...HEAD~296']
+
+
+0.3
+
+['HEAD~200...HEAD~201', 'HEAD~204...HEAD~205', 'HEAD~207...HEAD~208', 'HEAD~215...HEAD~216', 'HEAD~216...HEAD~217', 'HEAD~217...HEAD~218', 'HEAD~226...HEAD~227', 'HEAD~229...HEAD~230', 'HEAD~233...HEAD~234', 'HEAD~236...HEAD~237', 'HEAD~242...HEAD~243', 'HEAD~246...HEAD~247', 'HEAD~248...HEAD~249', 'HEAD~251...HEAD~252', 'HEAD~261...HEAD~262', 'HEAD~267...HEAD~268', 'HEAD~269...HEAD~270', 'HEAD~271...HEAD~272', 'HEAD~272...HEAD~273', 'HEAD~282...HEAD~283', 'HEAD~292...HEAD~293', 'HEAD~295...HEAD~296']
+
+0.5
+
+['HEAD~200...HEAD~201', 'HEAD~215...HEAD~216', 'HEAD~226...HEAD~227', 'HEAD~229...HEAD~230', 'HEAD~246...HEAD~247', 'HEAD~248...HEAD~249', 'HEAD~251...HEAD~252', 'HEAD~261...HEAD~262', 'HEAD~269...HEAD~270', 'HEAD~271...HEAD~272', 'HEAD~282...HEAD~283', 'HEAD~295...HEAD~296']
+
+
+We found the following results with one condition -- added>removed
+
+['HEAD~200...HEAD~201', 'HEAD~211...HEAD~212', 'HEAD~212...HEAD~213', 'HEAD~218...HEAD~219', 'HEAD~220...HEAD~221', 'HEAD~231...HEAD~232', 'HEAD~233...HEAD~234', 'HEAD~234...HEAD~235', 'HEAD~238...HEAD~239', 'HEAD~241...HEAD~242', 'HEAD~242...HEAD~243', 'HEAD~244...HEAD~245', 'HEAD~245...HEAD~246', 'HEAD~246...HEAD~247', 'HEAD~253...HEAD~254', 'HEAD~255...HEAD~256', 'HEAD~260...HEAD~261', 'HEAD~264...HEAD~265', 'HEAD~265...HEAD~266', 'HEAD~272...HEAD~273', 'HEAD~281...HEAD~282', 'HEAD~292...HEAD~293']
+
+Then, we found the results with condition -- removed>added
+
+['HEAD~202...HEAD~203', 'HEAD~203...HEAD~204', 'HEAD~204...HEAD~205', 'HEAD~205...HEAD~206', 'HEAD~206...HEAD~207', 'HEAD~207...HEAD~208', 'HEAD~208...HEAD~209', 'HEAD~209...HEAD~210', 'HEAD~210...HEAD~211', 'HEAD~213...HEAD~214', 'HEAD~215...HEAD~216', 'HEAD~216...HEAD~217', 'HEAD~217...HEAD~218', 'HEAD~221...HEAD~222', 'HEAD~222...HEAD~223', 'HEAD~223...HEAD~224', 'HEAD~224...HEAD~225', 'HEAD~225...HEAD~226', 'HEAD~226...HEAD~227', 'HEAD~227...HEAD~228', 'HEAD~228...HEAD~229', 'HEAD~230...HEAD~231', 'HEAD~235...HEAD~236', 'HEAD~237...HEAD~238', 'HEAD~239...HEAD~240', 'HEAD~240...HEAD~241', 'HEAD~243...HEAD~244', 'HEAD~248...HEAD~249', 'HEAD~249...HEAD~250', 'HEAD~250...HEAD~251', 'HEAD~251...HEAD~252', 'HEAD~252...HEAD~253', 'HEAD~256...HEAD~257', 'HEAD~257...HEAD~258', 'HEAD~259...HEAD~260', 'HEAD~263...HEAD~264', 'HEAD~266...HEAD~267', 'HEAD~267...HEAD~268', 'HEAD~268...HEAD~269', 'HEAD~269...HEAD~270', 'HEAD~274...HEAD~275', 'HEAD~275...HEAD~276', 'HEAD~276...HEAD~277', 'HEAD~277...HEAD~278', 'HEAD~278...HEAD~279', 'HEAD~279...HEAD~280', 'HEAD~280...HEAD~281', 'HEAD~282...HEAD~283', 'HEAD~283...HEAD~284', 'HEAD~284...HEAD~285', 'HEAD~285...HEAD~286', 'HEAD~286...HEAD~287', 'HEAD~287...HEAD~288', 'HEAD~288...HEAD~289', 'HEAD~289...HEAD~290', 'HEAD~290...HEAD~291', 'HEAD~291...HEAD~292', 'HEAD~293...HEAD~294', 'HEAD~295...HEAD~296', 'HEAD~296...HEAD~297', 'HEAD~297...HEAD~298', 'HEAD~298...HEAD~299', 'HEAD~299...HEAD~300']
+
+In the third indicator - some added > removed, without considering the second indicator, 6 of 9 “yes” are added < removed, 3 of 9 are added > removed. It seems that more of refactoring are added < removed. However, we can’t ensure all of added < removed are not cleanup patches. From now on, we are not sure this hypothesis is correct.(if suppose all the 6 added < removed are not cleanup, this hypothesis is wrong)
+
+For further exploration, we need more data to verify or falsify the hypothesis. (the results of the two datasets are contradict) As for conclusion, we think the pattern is remaining to be inspected(may be wrong), because we verify the hypothesis using the given dataset while falsify the hypothesis using our dataset.
