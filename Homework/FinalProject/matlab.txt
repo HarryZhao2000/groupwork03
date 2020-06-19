@@ -1,0 +1,24 @@
+clc,clear%matlab 
+R=[];%R
+[m,n] = size(R);
+R1 = zeros(m,n);
+for i = 1:n
+R1(:,i) = (R(:,i)-min(R(:,i)))/(max(R(:,i))-min(R(:,i)));
+end
+ex=sum(R1);
+R2=zeros(m,n);
+for i=1:m
+for j=1:n
+R2(i,j)=R1(i,j)/ex(j);
+end
+end
+R3=R2.*log(R2);
+R4=R3;
+R4(find(isnan(R4)==1)) = 0;
+ex=sum(R4);
+ex1=-1/log(m)*ex
+ex2=(1-ex1)/(n-sum(ex1));
+for i=1:m
+R5(i)=sum(R(i,:).*ex2);
+end
+R5
