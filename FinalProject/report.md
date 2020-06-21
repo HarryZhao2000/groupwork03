@@ -80,8 +80,11 @@ $$
 ​				1，     4，     5，     7，     8
 
 ​				1/4， 1，     2，     5，     8
+
 ​				1/5， 1/2，  1，    7，      4
+
 ​				1/7， 1/5，  1/7， 1，     2
+
 ​				1/8， 1/4 ， 1/8， 1/2，  1
 
 ​		Using the sum product method to calculate the weight W is:
