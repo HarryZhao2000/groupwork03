@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding:UTF-8 -*-
+
+__author__ = "Group03"
+__copyright__ = "Copyright 2019, OpenTech Research"
+__credits__ = ["Group03"]
+__version__ = "3"
+__maintainer__ = "Linux maintainer"
+__email__ = "zhaohr18@lzu.edu.com"
+__status__ = "Experimental"
+
+
 import csv
 with open('/home/liuyz/桌面/test2(4).csv', encoding='gb18030') as f:
 

@@ -11,7 +11,13 @@
 - LiuYueze(320180940071)
 - LiYichen(320180939961)
 
-## II. Model
+## II. Project thinking process
+
+​		Since there is no parameter in linux-stable that can indicate the quality of the code, or a tag, we try to define ourselves as a programmer's ability. We build a nonlinear regression model ourselves to represent a person's ability, referred to as Weights. Through this weights, we try to use the personnel in V4 to generate the weights table, and use these data to verify and search our hypothesis, *use time zone to judge programmer level to judge code level*, and calculate the statistical value to verify .
+
+​		We mainly use the git package in python for operation, and perform CSV data storage and data visualization, packaging and upgrade. Since some calculations in the middle part are just calculation formulas, we directly use the calculator to check the statistical results.
+
+## III. Model
 
 ###1 Problem Analysis
 
@@ -118,7 +124,7 @@ $$
 
 ​		The utility value will be given through the CSV table, so far all the utility quantification is completed, that is, each programmer will quantify the contribution of the linux stable library.
 
-## III. Grap and preprocess the data 
+## IV. Grap and preprocess the data 
 
 ### 1  **Data capture**
 
@@ -147,7 +153,7 @@ $$
 
 ​		After data preprocessing, we get the specific values of these five standards, and put them into the established mathematical model for analysis. After analysis, we get a value that can quantify each person's specific ability, which we call the ability index. Based on the time zone, we get the sum and average of the ability index of all people in each time zone, so as to judge whether there is an obvious relationship between the professional ability of engineers and the time zone.
 
-## IV. Fit and conclusion
+## V. Fit and conclusion
 
 ​		We select the commit, fix, merge operations and other data of each author in the Linux library as indicators, use Python to automatically capture and count them, 
 and then use these indicators to give each author an index to measure their contribution to the Linux library through modeling. Then, the authors are grouped according to their time zone, 
@@ -155,3 +161,13 @@ and their contribution index is summed to get the sum of the contributions of en
 
 ​		The main continents of the world are divided into two parts: the United States to the east coast of the Atlantic Ocean and Europe to the east coast of Eurasia. 
 ​		In these two parts, the contribution of engineers to Linux library gradually decreases from west to East. The decreasing trend from the United States to the east coast of the Atlantic Ocean is obvious, and the correlation coefficient is - 0.71. The decreasing trend from Europe to the east coast of Eurasia is not obvious, and the correlation coefficient is - 0.58.
+
+## VI. Check results
+
+​		From the perspective of the world map, to be honest, we don’t have high self-confidence in this model, but in the end, we found a general rule that the world is divided into two parts with Europe as the boundary, and each part contributes to linux The amount is gradually decreasing from west to east, The correlation coefficient is around 0.6. This may indicate that human capabilities are partially related to the region, but we have no idea how to derive downwards, and we don’t know whether our model process is wrong.
+
+ps. We also found an interesting fact. From the map, it is true that the contribution of developers in economically developed areas is relatively high, such as the East Coast of the United States, China, Japan, and South Korea.
+
+## VII Feelings
+
+​		We tried a variety of methods and processes to consider this "impossible" task, so we also made this result that we don't know if it is correct. The project process is still very interesting. Everyone came up with their strange but brilliant ideas. Of course, we gave up because we couldn't realize it. The difficulty this time is that it is impossible to accurately judge the programmer's ability or code quality. We tried to quantify him and achieve comparison with them, which gave us valuable experience.
